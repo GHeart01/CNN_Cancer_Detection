@@ -33,8 +33,9 @@ In this dataset I am provided with a large number of small pathology images to c
 
 The original PCam dataset contains duplicate images due to its probabilistic sampling, however, the version presented on Kaggle does not contain duplicates. We have otherwise maintained the same data and splits as the PCam benchmark.
 
+<img src="ROC_curve.png" style="display: block; margin: auto;">
+
 #### Result and Analysis
-# Prediction probability histogram
 
 The MobileNetV2 model achieve an excellent performance of .93 on the ROC curve after only 3 epoch and extremely reduced training data size. Based on the performance metric resport I see there were 40 false negatives and 74 false positives. The default threshhold of .5 has 61 false negative sand 61 false positives, which is more balanced but misses some positive cancer cases. 
 This extremely strong performance after only 3 epochs with less than 10% of parameters being trained and an average precision of .9039 is incredible. Lowering the threshold slightly (from 0.5 to 0.401) improved the recall for Cancer cases — meaning the model caught more true positives, which is vital in medical diagnostics where missing a cancer case can be critical.
